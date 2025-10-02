@@ -38,17 +38,23 @@ jobs:
       - name: Construir el Sitio (Modo Produccion)
         run: hugo --minify
       
-      # 5. Desplegar a HostGator usando FTP
+# ... (Código anterior)
+
+      # 5. Desplegar a HostGator usando FTP (¡Corregido!)
       - name: Desplegar via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # La carpeta local a subir (el resultado de hugo)
-          local-directory: ./public/
-          # La carpeta de destino en tu HostGator
-          server-directory: ${{ secrets.FTP_PATH }}
-          # Borra archivos en el servidor que ya no existan en el local (limpieza)
-          delete-test: true 
-          timeout: 120000
+          # Renombrado de 'local-directory' a 'local-dir'
+          local-dir: ./public/
+          # Renombrado de 'server-directory' a 'server-dir'
+          server-dir: ${{ secrets.FTP_PATH }}
+          
+          # La opción 'delete-test' fue reemplazada. 
+          # Usamos 'dry-run: false' para indicar que no es una prueba.
+          dry-run: false 
+          
+          # La opción 'timeout' ya no es soportada como antes, la eliminamos.
+          # Eliminamos: timeout: 120000
