@@ -1,0 +1,46 @@
+baseURL = "https://capibaragames.com"
+languageCode = "es-mx"
+title = "CAPIBARA GAMES DevBlog"
+
+# 1. Definir el nuevo tema
+theme = "PaperMod"
+
+# 2. Configuración de paginación
+[pagination]
+  pagerSize = 5
+
+# --- CONFIGURACIÓN ESPECÍFICA DE PAPERMOD (PARÁMETROS) ---
+[params]
+  defaultTheme = "auto"
+  showToc = true # Mostrar Tabla de Contenidos en los posts
+
+  # Parámetros del Home (Página Principal)
+  [params.homeInfoParams]
+    Title = "Hola, soy CAPIBARA GAMES"
+    Content = "Aquí documentamos nuestro viaje de desarrollo de videojuegos. Explora nuestros últimos [Posts](/posts/) y [Juegos](/juegos/)."
+    
+# 3. MENÚS DE NAVEGACIÓN (PaperMod usa [menu] para el header)
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Inicio"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Blog"
+    url = "/posts/"
+    weight = 2
+    
+  [[menu.main]]
+    identifier = "juegos"
+    name = "Juegos"
+    url = "/juegos/"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/CAPIBARAGAMES"
+    weight = 4

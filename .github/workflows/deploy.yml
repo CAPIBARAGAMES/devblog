@@ -1,0 +1,54 @@
+# Nombre del flujo de trabajo
+name: Despliegue Automatico de Hugo a HostGator
+
+# Eventos que disparan el flujo (cada vez que se haga push a la rama 'main')
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Permite ejecutarlo manualmente desde GitHub
+
+# Tareas a ejecutar
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout del repositorio
+      - name: Checkout del codigo y Submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # Esto es CRUCIAL para descargar el tema PaperMod
+          fetch-depth: 0    
+          
+      # 2. Configurar el entorno de Go
+      - name: Setup Go environment
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22' 
+
+      # 3. Descargar Hugo Extended (necesario para PaperMod)
+      - name: Descargar Hugo Extended
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true # ¡VITAL para evitar errores de CSS!
+
+      # 4. Compilar el sitio de Hugo
+      - name: Construir el Sitio (Modo Produccion)
+        run: hugo --minify
+      
+      # 5. Desplegar a HostGator usando FTP
+      - name: Desplegar via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # La carpeta local a subir (el resultado de hugo)
+          local-directory: ./public/
+          # La carpeta de destino en tu HostGator
+          server-directory: ${{ secrets.FTP_PATH }}
+          # Borra archivos en el servidor que ya no existan en el local (limpieza)
+          delete-test: true 
+          timeout: 120000

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CAPIBARA GAMES DevBlog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on CAPIBARA GAMES DevBlog</description>
+    <generator>Hugo -- 0.150.1</generator>
+    <language>es-mx</language>
+    <lastBuildDate>Wed, 01 Oct 2025 22:13:44 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primer Juego</title>
+      <link>http://localhost:1313/juegos/primer-juego/</link>
+      <pubDate>Wed, 01 Oct 2025 22:13:44 -0600</pubDate>
+      <guid>http://localhost:1313/juegos/primer-juego/</guid>
+      <description>&lt;p&gt;Defensor del Drenaje&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Primer Post</title>
+      <link>http://localhost:1313/posts/primer-post/</link>
+      <pubDate>Wed, 01 Oct 2025 22:13:16 -0600</pubDate>
+      <guid>http://localhost:1313/posts/primer-post/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
