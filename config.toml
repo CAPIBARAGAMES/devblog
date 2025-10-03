@@ -1,25 +1,53 @@
 baseURL = "https://capibaragames.com"
 languageCode = "es-mx"
 title = "CAPIBARA GAMES DevBlog"
-
-# 1. Definir el nuevo tema
 theme = "PaperMod"
 
-# 2. Configuración de paginación
+# Paginación
 [pagination]
   pagerSize = 5
 
-# --- CONFIGURACIÓN ESPECÍFICA DE PAPERMOD (PARÁMETROS) ---
+# ---------------------------
+# CONFIGURACIÓN DE PAPERMOD
+# ---------------------------
 [params]
   defaultTheme = "auto"
-  showToc = true # Mostrar Tabla de Contenidos en los posts
+  showToc = true
 
-  # Parámetros del Home (Página Principal)
+  # --- HOME INFO MODE ---
   [params.homeInfoParams]
     Title = "Hola, soy CAPIBARA GAMES"
-    Content = "Aquí documentamos nuestro viaje de desarrollo de videojuegos. Explora nuestros últimos [Posts](/posts/) y [Juegos](/juegos/)."
-    
-# 3. MENÚS DE NAVEGACIÓN (PaperMod usa [menu] para el header)
+    Content = """Aquí documentamos nuestro viaje de desarrollo de videojuegos.  
+    Explora nuestros últimos [Posts](/posts/) y [Juegos](/juegos/)."""
+
+  # --- ARCHIVO Y BUSCADOR ---
+  showArchive = true
+  showSearch = true
+
+  # Configuración del buscador
+  [params.search]
+    provider = "lunr"    # opciones: "lunr", "algolia", "fuse"
+    fuse = { isCaseSensitive = false, shouldSort = true, location = 0, distance = 100, threshold = 0.4 }
+
+  # --- REDES SOCIALES (opcional) ---
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/CAPIBARAGAMES"
+
+  [[params.socialIcons]]
+    name = "itchio"
+    url = "https://capibaragamesitchio.itch.io/"
+
+  [[params.socialIcons]]
+    name = "youtube"
+    url = "https://www.youtube.com/@CapibaraGamesDev"
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://x.com/LuisEnr38013315"
+# ---------------------------
+# MENÚS DE NAVEGACIÓN
+# ---------------------------
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -40,7 +68,13 @@ theme = "PaperMod"
     weight = 3
     
   [[menu.main]]
-    identifier = "github"
-    name = "GitHub"
-    url = "https://github.com/CAPIBARAGAMES"
+    identifier = "archive"
+    name = "Archivo"
+    url = "/archives/"
     weight = 4
+    
+  [[menu.main]]
+    identifier = "search"
+    name = "Buscar"
+    url = "/search/"
+    weight = 5
