@@ -17,8 +17,7 @@ theme = "PaperMod"
   # --- HOME INFO MODE ---
   [params.homeInfoParams]
     Title = "Hola, soy CAPIBARA GAMES"
-    Content = """Aquí documentamos nuestro viaje de desarrollo de videojuegos.  
-    Explora nuestros últimos [Posts](/posts/) y [Juegos](/juegos/)."""
+    Content = """Aquí documentamos nuestro viaje de desarrollo de videojuegos. Explora nuestros últimos [Posts](/posts/) y [Juegos](/juegos/)."""
 
   # --- ARCHIVO Y BUSCADOR ---
   showArchive = true
